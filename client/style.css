@@ -1,9 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap');
 a {
     text-decoration: none;
 }
 
 body {
-    font-family: 'Nunito Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
     background-color: #edf2f6;
     margin: 0;
 }
@@ -39,6 +40,24 @@ header nav a.active {
     align-items: center;
 }
 
+.add-button {
+    border:none;
+    background-color: #7284d1;
+    border-radius: 4px;
+    color: white;
+    padding: 8px 14px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.add-button:hover {
+    background-color:#4054be;
+}
+.add-button .plus {
+    margin-right: 12px;
+    font-size: 16px;
+}
+
 .cards {
     width: 100%;
     height: auto;
@@ -56,20 +75,118 @@ header nav a.active {
     margin: 20px 0px;
     box-sizing: border-box;
     border-radius: 4px;
+    border: 1px solid #d0d0d0;
     box-shadow: rgba(33, 35, 38, 0.1) 10px 10px 10px -10px;
     text-align: center;
 }
 
-.content {
+
+.card .content {
+    text-align: center;
+    border-bottom: 1px solid #d0d0d0;
+    padding: 12px 0px 24px 0px;
+}
+
+.card .actions {
+    text-align: right;
+    padding: 24px;
+}
+
+.card .actions .delete-button {
+    background-color: #f5d1d4;
+    padding: 10px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.card .actions .delete-button:hover {
+    background-color: #e88c94;
+}
+
+.card .actions .delete-button i {
+    color:#d11a2a;
+}
+
+
+/* ADD HTML */
+
+.add-card {
+    width: 100%;
+    background-color: white;
+    margin: 0 auto;
+    padding: 30px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    border: 1px solid #d0d0d0;
+    box-shadow: rgba(33, 35, 38, 0.1) 10px 10px 10px -10px;
+    text-align: center;
+}
+.add-card .form {
+    width: 50%;
+    margin: 0 auto;
+}
+.add-card .form .input-field{
+    margin-bottom: 15px;
     display: flex;
-    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
 }
 
-.card h2 {
-    margin: 25px 4px 4px;
+.add-card .form .input-field label {
+    width: 150px;
+    margin-right: 15px;
+    font-size: 14px;
+    text-align: right;
+    font-weight:700;
 }
 
-.card p {
-    border-bottom: 1px solid rgba(33, 35, 38, 0.1);
-    padding-bottom: 30px;
+.add-card .form .input-field input,
+.add-card .form .input-field textarea
+ {
+    width: 100%;
+    outline: none;
+    border: 1px solid #d0d0d0;
+    font-size: 15px;
+    padding: 8px 10px;
+    border-radius: 4px;
+    box-shadow: rgba(33, 35, 38, 0.1) 4px 4px 4px -1px;
+}
+
+
+.add-card .form .input-field textarea{
+    resize: none;
+    height: 150px;
+}
+
+.button-section {
+    padding: 28px;
+}
+
+.cancel-button {
+    border:none;
+    border-radius: 4px;
+    padding: 8px 14px;
+    font-size: 14px;
+    cursor: pointer;
+}
+.cancel-button:hover {
+    background-color: #bdbdbd;
+}
+
+/* USER MANAGEMENT */
+.table-card {
+width: 400px;
+height: 200px;
+background-color: white;
+box-sizing: border-box;
+border-radius: 4px;
+border: 1px solid #d0d0d0;
+box-shadow: rgba(33, 35, 38, 0.1) 10px 10px 10px -10px;
+text-align: left;
+}
+.table-card h4 {
+    color:#bdc3da;
+}
+.table-card h4, table {
+    margin: 30px;
 }

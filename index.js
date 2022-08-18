@@ -45,6 +45,21 @@ app.post("/memberships", async (req, res) => {
   }
 });
 
+app.delete("/memberships/:id", async (req, res) => {
+  try {
+    const con = await client.connect();
+    const data = await con
+      .db(DB)
+      .collection(membershipsCollection)
+      .deleteOne({_id: ObjectId(req.params.id)});
+    await con.close();
+    res.send(data);
+  } catch (error) {
+    res.status(500).send({ error });
+  }
+});
+
+
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });

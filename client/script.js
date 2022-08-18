@@ -1,25 +1,41 @@
+const handleDelete = (id) => {
+    const params = {method:"DELETE"};
+    fetch(`http://localhost:3000/memberships/${id}`,params)
+  .then((resp) => resp.json())
+  .then((response) => {
+    console.log(response);
+  })
+  .catch((error) => console.error(error));
+};
+
 const renderCard = (membership) => {
     const {name, price, description} = membership;
-    const cardsEl = document.createElement("div");
     const cardEl = document.createElement("div");
     const contentEl = document.createElement("div");
 
-    const title = document.createElement("h2");
-    const membershipPrice = document.createElement("h2");
+    const title = document.createElement("h3");
+    const membershipPrice = document.createElement("h3");
     const serviceDescription = document.createElement("p");
-    const deleteButton = document.createElement("button");
+    const actions = document.createElement("div");
+    const deleteButton = document.createElement("span");
+    const icon = document.createElement("i");
 
-    title.textContent = name;
+    title.textContent = `$${price} ${name}`;
     membershipPrice.textContent = price;
     serviceDescription.textContent = description;
-    deleteButton.textContent = "Delete";
 
-    cardsEl.className = "cards";
     cardEl.className = "card";
     contentEl.className ="content";
+    actions.className = "actions";
+    deleteButton.className = "delete-button";
+    icon.className = "fa-solid fa-trash-can";
 
-    contentEl.append(membershipPrice, title);
-    cardEl.append(contentEl,serviceDescription, deleteButton);
+    deleteButton.addEventListener("click", () => handleDelete(membership["_id"]));
+
+    contentEl.append(title, serviceDescription);
+    deleteButton.append(icon);
+    actions.append(deleteButton);
+    cardEl.append(contentEl, actions);
 
     document.querySelector(".cards").append(cardEl);
 };
